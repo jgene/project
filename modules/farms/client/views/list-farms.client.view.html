@@ -1,0 +1,42 @@
+<section data-ng-controller="FarmsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Farms</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="farm in farms" ng-if="authentication.user._id == farm.user._id" data-ui-sref="farms.view({farmId: farm._id})" class="list-group-item">
+            <div ng-show="authentication.user._id == farm.user._id">
+                <h4 class="list-group-item-heading" data-ng-bind="farm.title"></h4>
+                <small class="list-group-item-text">
+                    Added on
+                    <span data-ng-bind="farm.created | date:'medium'"></span>
+                </small><p class="list-group-item-text" style = "color : green">
+                Last data logged on
+                <span data-ng-bind="farm.logged | date:'medium'"></span>
+            </p>
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3 col-md-3" ng-if="farm.content && farm.content12">
+                        <p class="list-group-item-text" data-ng-bind="farm.content"></p>
+                        <p class="list-group-item-text" ng-bind-template="{{farm.content12}} ºC"></p>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3" ng-if="farm.content21 && farm.content22">
+                        kkkjjj
+                        <p class="list-group-item-text" data-ng-bind="farm.content21"></p>
+                        <p class="list-group-item-text" ng-bind-template="{{farm.content22}} %"></p>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3" ng-if="farm.content31 && farm.content32">
+                        <p class="list-group-item-text" data-ng-bind="farm.content31">1</p>
+                        <p class="list-group-item-text" ng-bind-template="{{farm.content32}}"></p>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3" ng-if="farm.content41 && farm.content42">
+                        <p class="list-group-item-text" data-ng-bind="farm.content41"></p>
+                        <p class="list-group-item-text" ng-bind-template="{{farm.content42}} %" ng-if="farm.content42"></p>
+                    </div>
+                </div>
+            </div>
+
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-if="farms.$resolved && !farms.length">
+        No farms yet, why don't you <a data-ui-sref="farms.create">create one</a>?
+    </div>
+</section>

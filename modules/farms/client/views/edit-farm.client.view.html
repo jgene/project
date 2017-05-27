@@ -1,0 +1,47 @@
+<section data-ng-controller="FarmsController" data-ng-init="findOne()">
+  <div class="page-header">
+    <h1>Edit Farm</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="farmForm" class="form-horizontal" data-ng-submit="update()" novalidate>
+      <fieldset>
+        <div class="form-group">
+          <label class="control-label" for="title">Farm Name</label>
+          <div class="controls">
+            <input name="title" type="text" data-ng-model="farm.title" id="title" class="form-control" placeholder="Title" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="content">Module 1</label>
+          <div class="controls">
+            <input name="content" data-ng-model="farm.content" id="content" class="form-control" placeholder="Content">
+          </div>
+        </div>
+          <div class="form-group">
+              <label class="control-label" for="content">Module 2</label>
+              <div class="controls">
+                  <input name="content21" data-ng-model="farm.content21" id="content21" class="form-control" placeholder="Module">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label" for="content">Module 3</label>
+              <div class="controls">
+                  <input name="content31" data-ng-model="farm.content31" id="content31" class="form-control" placeholder="Name of Module">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label" for="content">Module 4</label>
+              <div class="controls">
+                  <input name="content41" data-ng-model="farm.content41" id="content41" class="form-control" placeholder="Name of Module">
+              </div>
+          </div>
+        <div class="form-group">
+          <input type="submit" value="Update" class="btn btn-success">
+        </div>
+        <div data-ng-show="error" class="text-danger">
+          <strong data-ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

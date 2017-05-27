@@ -1,0 +1,41 @@
+<section data-ng-controller="FarmsController" data-ng-init="findOne()">
+  <div class="page-header">
+    <h1 data-ng-bind="farm.title"></h1>
+  </div>
+  <div class="pull-right" data-ng-show="authentication.user._id == farm.user._id">
+    <a class="btn btn-primary" data-ui-sref="farms.edit({farmId: farm._id})">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" data-ng-click="remove();">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Added on
+      <span data-ng-bind="farm.created | date:'mediumDate'"></span>
+    </em>
+  </small>
+    <p>
+    <em class="text-muted">
+        API key:
+        <span style ='color:blue' data-ng-bind="farm.apikey"></span>
+    </em>
+    </p>
+    <div class="row">
+        <div class="col-xs-6 col-sm-4 col-md-3" ng-if="farm.content && farm.content12">
+            <p class="lead" ng-bind-template="{{farm.content}}: {{farm.content12}} ºC"></p>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3" ng-if="farm.content21 && farm.content22">
+            <p class="lead" ng-bind-template="{{farm.content21}}: {{farm.content22}} %"></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-sm-4 col-md-3" ng-if="farm.content31 && farm.content32">
+            <p class="lead" ng-bind-template="{{farm.content31}}: {{farm.content32}}"></p>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3" ng-if="farm.content41 && farm.content42">
+            <p class="lead" ng-bind-template="{{farm.content41}}: {{farm.content42}} %"></p>
+        </div>
+    </div>
+</section>
